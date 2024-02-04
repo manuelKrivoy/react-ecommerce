@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <p></p>
       <ItemListContainer greetings={"Bienvenidos a RETRO SHIRTS"}></ItemListContainer>
     </div>

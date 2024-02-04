@@ -1,10 +1,10 @@
-import { BsCartFill } from "react-icons/bs";
+import LocalMall from '@mui/icons-material/LocalMall';
 
 export const CartWidget = () => {
   return (
     <div>
-        <BsCartFill  />
-        <span>0</span>
+       <LocalMall/>
+        <span >0</span>
     </div>
     
   )
