@@ -1,6 +1,6 @@
 
 export const ItemListContainer = ({greetings}) => {
   return (
-    <div>{greetings}</div>
+    <div style={{color:"white"}}>{greetings}</div>
   )
 }
