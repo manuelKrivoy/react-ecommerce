@@ -1,17 +1,37 @@
-import "./ProductCard.css";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Image,
+  Heading,
+  Text,
+  Divider,
+  ButtonGroup,
+  Button,
+  Stack,
+} from "@chakra-ui/react";
 
 export const ProductCard = ({ img, title, description, price }) => {
   return (
-    <div className="product-card">
-      <img className="product-image" src={img} alt={title} />
-      <div className="product-details">
-        <h2 className="product-title">{title}</h2>
-        <p className="product-description">{description}</p>
-        <p className="product-price">${price}</p>
-        <div style={{ paddingBottom: "10px" }}>
-          <button className="buy-button">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
+    <Card maxW="sm">
+      <CardBody>
+        <Image src={img} borderRadius="lg" />
+        <Stack mt="6" spacing="3">
+          <Heading size="md">{title}</Heading>
+          <Text>{description}</Text>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter>
+        <ButtonGroup spacing="2">
+          <Text color="blue.600" fontSize="2xl">
+            ${price}
+          </Text>
+          <Button variant="solid" colorScheme="blue">
+            Buy
+          </Button>
+        </ButtonGroup>
+      </CardFooter>
+    </Card>
   );
 };

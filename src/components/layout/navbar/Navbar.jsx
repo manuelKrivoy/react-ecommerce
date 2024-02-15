@@ -1,29 +1,24 @@
-import { Button, AppBar } from "@mui/material";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import { CartWidget } from "../../common/cartWidget/CartWidget";
 
 export const Navbar = () => {
   return (
-    <AppBar
-      position="static"
-      sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px" }}
-    >
-      <div>
-        <Button variant="contained" sx={{ marginRight: "8px", marginBottom: "5px" }}>
+    <Flex justifyContent="space-between" alignItems="center" p="5">
+      <Box>
+        <Button variant="solid" mr="4">
           Home
         </Button>
-        <Button variant="contained" sx={{ marginRight: "8px", marginBottom: "5px" }}>
+        <Button variant="solid" mr="4">
           Selecciones
         </Button>
-        <Button variant="contained" sx={{ marginRight: "8px", marginBottom: "5px" }}>
+        <Button variant="solid" mr="4">
           Clubes
         </Button>
-        <Button variant="contained" sx={{ marginRight: "8px", marginBottom: "5px" }}>
-          Accesorios
-        </Button>
-      </div>
-      <div>
+        <Button variant="solid">Accesorios</Button>
+      </Box>
+      <Box>
         <CartWidget />
-      </div>
-    </AppBar>
+      </Box>
+    </Flex>
   );
 };

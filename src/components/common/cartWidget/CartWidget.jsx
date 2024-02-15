@@ -1,10 +1,13 @@
-import LocalMall from "@mui/icons-material/LocalMall";
+import { Button } from "@chakra-ui/react";
+import { BsCartFill } from "react-icons/bs";
 
 export const CartWidget = () => {
   return (
-    <div>
-      <LocalMall />
-      <span>0</span>
-    </div>
+    <>
+      <Button variant="solid" mr="4">
+        <BsCartFill />
+        <p>0</p>
+      </Button>
+    </>
   );
 };

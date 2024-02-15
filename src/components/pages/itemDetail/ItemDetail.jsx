@@ -1,4 +1,3 @@
-import { Image, Col, Row, Container, Card } from "react-bootstrap";
 import CounterContainer from "../../common/counter/CounterContainer";
 
 const ItemDetail = ({ item }) => {
@@ -8,23 +7,24 @@ const ItemDetail = ({ item }) => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col md={6}>
-          <Image src={item.img} alt={item.title} fluid style={{ border: "2px solid black" }} />
-        </Col>
-        <Col md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title style={{ fontSize: "2.5rem" }}>{item.title}</Card.Title>
-              <Card.Text>{item.description}</Card.Text>
-              <Card.Text style={{ fontSize: "2rem", fontWeight: "bold", color: "green" }}> ${item.price}</Card.Text>
-              <CounterContainer stock={item.stock} />
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div style={{ display: "flex" }}>
+      <img
+        src={item.img}
+        alt={item.title}
+        style={{
+          marginRight: "20px",
+          width: "200px",
+          height: "auto",
+          border: "2px solid black", // Agregamos el borde negro
+        }}
+      />
+      <div>
+        <h2 style={{ fontSize: "24px", marginBottom: "10px" }}>{item.title}</h2>
+        <p style={{ marginBottom: "10px" }}>{item.description}</p>
+        <p style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "10px" }}>Price: ${item.price}</p>
+        <CounterContainer stock={item.stock} />
+      </div>
+    </div>
   );
 };
 
