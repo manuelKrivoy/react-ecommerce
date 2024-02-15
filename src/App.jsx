@@ -1,14 +1,15 @@
-import { Navbar } from "./components/layout/Navbar";
-import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
+import NavbarContainer from "./components/layout/navbar/NavbarContainer.jsx";
+import ItemListContainer from "./components/pages/itemList/ItemListContainer.jsx";
+
+import ItemDetailContainer from "./components/pages/itemDetail/ItemDetailContainer.jsx";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <NavbarContainer />
       <p></p>
-      <ItemListContainer
-        greetings={"Bienvenidos a RETRO SHIRTS"}
-      ></ItemListContainer>
+      <ItemListContainer></ItemListContainer> */}
+      <ItemDetailContainer />
     </div>
   );
 }
