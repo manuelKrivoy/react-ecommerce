@@ -1,11 +1,23 @@
-const Count = ({ count, add, odd }) => {
+import { IconButton, ButtonGroup, Box, Text, Button } from "@chakra-ui/react";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+
+const Count = ({ count, add, odd, stock }) => {
   return (
     <div>
-      <button onClick={add}>+</button>
-      <h4>{count}</h4>
-      <button onClick={odd} disabled={count === 1 ? true : false}>
-        -
-      </button>
+      <Box>
+        <ButtonGroup variant="outline" spacing="6">
+          <IconButton aria-label="addItem" onClick={add} icon={<AddIcon />} isDisabled={count == stock} />
+          <Text fontSize="25px" as="b">
+            {count}
+          </Text>
+          <IconButton aria-label="oddItem" onClick={odd} icon={<MinusIcon />} isDisabled={count < 2} />
+        </ButtonGroup>
+      </Box>
+      <Box paddingTop="20px">
+        <Button colorScheme="blue" variant="outline">
+          Añadir al carrito
+        </Button>
+      </Box>
     </div>
   );
 };

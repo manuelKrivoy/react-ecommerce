@@ -12,7 +12,7 @@ const CountContainer = ({ stock }) => {
     if (count > 1 ? setCount(count - 1) : alert("no se puede seguir restando"));
   };
 
-  return <Count count={count} add={add} odd={odd} />;
+  return <Count count={count} add={add} odd={odd} stock={stock} />;
 };
 
 export default CountContainer;

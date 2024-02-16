@@ -1,3 +1,4 @@
+import { Box, Image, Text, Heading, Flex } from "@chakra-ui/react";
 import CounterContainer from "../../common/counter/CounterContainer";
 
 const ItemDetail = ({ item }) => {
@@ -7,24 +8,21 @@ const ItemDetail = ({ item }) => {
   }
 
   return (
-    <div style={{ display: "flex" }}>
-      <img
-        src={item.img}
-        alt={item.title}
-        style={{
-          marginRight: "20px",
-          width: "200px",
-          height: "auto",
-          border: "2px solid black", // Agregamos el borde negro
-        }}
-      />
-      <div>
-        <h2 style={{ fontSize: "24px", marginBottom: "10px" }}>{item.title}</h2>
-        <p style={{ marginBottom: "10px" }}>{item.description}</p>
-        <p style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "10px" }}>Price: ${item.price}</p>
+    <Flex alignItems="flex-start" justifyContent="flex-start" p="20px">
+      <Image src={item.img} alt={item.title} boxSize="400px" objectFit="contain" border="2px solid black" mr="40px" />
+      <Box>
+        <Heading as="h2" fontSize="55px" mb="20px">
+          {item.title}
+        </Heading>
+        <Text mb="20px" fontSize="30px">
+          {item.description}
+        </Text>
+        <Text fontSize="40px" fontWeight="bold" mb="20px" color="green">
+          ${item.price}
+        </Text>
         <CounterContainer stock={item.stock} />
-      </div>
-    </div>
+      </Box>
+    </Flex>
   );
 };
 

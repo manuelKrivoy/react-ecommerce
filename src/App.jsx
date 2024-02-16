@@ -7,10 +7,10 @@ function App() {
   return (
     <ChakraProvider>
       <div>
-        {/* <NavbarContainer />
+        <NavbarContainer />
         <p></p>
-        <ItemListContainer></ItemListContainer> */}
-        <ItemDetailContainer />
+        <ItemListContainer></ItemListContainer>
+        {/* <ItemDetailContainer /> */}
       </div>
     </ChakraProvider>
   );
