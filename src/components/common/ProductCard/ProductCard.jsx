@@ -5,7 +5,7 @@ export const ProductCard = ({ img, title, price }) => {
     <Link href="#" _hover={{ transform: "scale(1.02)" }}>
       <Card maxW="sm">
         <CardBody>
-          <Image src={img} borderRadius="lg" />
+          <Image boxSize="200px" src={img} borderRadius="lg" />
           <div style={{ width: "100%", height: "50px" }}>
             <Stack mt="6">
               <Heading size="md">{title}</Heading>
