@@ -8,7 +8,7 @@ const ItemDetail = ({ item }) => {
   }
 
   return (
-    <Flex alignItems="flex-start" justifyContent="flex-start" p="20px">
+    <Flex alignItems="flex-start" justifyContent="flex-start" p="20px" pl="40px" backgroundColor="#d1d9e6">
       <Image src={item.img} alt={item.title} boxSize="400px" objectFit="contain" border="2px solid black" mr="40px" />
       <Box>
         <Heading as="h2" fontSize="55px" mb="20px">
@@ -17,7 +17,7 @@ const ItemDetail = ({ item }) => {
         <Text mb="20px" fontSize="30px">
           {item.description}
         </Text>
-        <Text fontSize="40px" fontWeight="bold" mb="20px" color="green">
+        <Text fontSize="40px" fontWeight="bold" mb="20px" color="#3FBD41">
           ${item.price}
         </Text>
         <CounterContainer stock={item.stock} />

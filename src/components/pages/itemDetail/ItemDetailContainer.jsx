@@ -1,6 +1,7 @@
 import ItemDetail from "./ItemDetail";
 import { products } from "../../../productMock";
 import { useState, useEffect } from "react";
+import "./ItemDetail.css";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
