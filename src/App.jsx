@@ -11,7 +11,7 @@ function App() {
         <NavbarContainer />
         <p></p>
         <ItemListContainer></ItemListContainer>
-        {/* <ItemDetailContainer /> */}
+        <ItemDetailContainer />
       </div>
     </ChakraProvider>
   );
