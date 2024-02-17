@@ -1,12 +1,12 @@
 import NavbarContainer from "./components/layout/navbar/NavbarContainer.jsx";
 import ItemListContainer from "./components/pages/itemList/ItemListContainer.jsx";
-import { ChakraProvider, background } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import ItemDetailContainer from "./components/pages/itemDetail/ItemDetailContainer.jsx";
-import "./index.css";
+import theme from "./theme.jsx"; // Reemplaza el index.css
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <div>
         <NavbarContainer />
         <p></p>
