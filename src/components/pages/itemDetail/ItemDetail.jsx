@@ -1,5 +1,6 @@
 import { Box, Image, Text, Heading, Flex } from "@chakra-ui/react";
 import CounterContainer from "../../common/counter/CounterContainer";
+import AddToCartContainer from "../../common/addToCart/AddToCartContainer";
 
 const ItemDetail = ({ item }) => {
   // Verificar si item es null antes de intentar acceder a sus propiedades
@@ -26,10 +27,13 @@ const ItemDetail = ({ item }) => {
         <Text mb="20px" fontSize="20px">
           {item.description}
         </Text>
-        <Text fontSize="40px" fontWeight="bold" mb="20px" color="#3FBD41">
+        <Text fontSize="30px" fontWeight="bold" mb="20px" color="#3FBD41">
           ${item.price}
         </Text>
-        <CounterContainer stock={item.stock} />
+        <Flex alignItems="center">
+          <AddToCartContainer />
+          <CounterContainer stock={item.stock} />
+        </Flex>
       </Box>
     </Flex>
   );

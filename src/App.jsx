@@ -9,8 +9,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <div>
         <NavbarContainer />
-        <p></p>
-        <ItemListContainer></ItemListContainer>
+        {/* <ItemListContainer></ItemListContainer> */}
         <ItemDetailContainer />
       </div>
     </ChakraProvider>

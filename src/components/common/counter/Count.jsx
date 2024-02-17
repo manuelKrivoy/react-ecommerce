@@ -1,25 +1,20 @@
-import { IconButton, ButtonGroup, Box, Text, Button } from "@chakra-ui/react";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import "./Count.css";
+import {
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+} from "@chakra-ui/react";
 
 const Count = ({ count, add, odd, stock }) => {
   return (
-    <div className="count-wrapper">
-      <Box>
-        <ButtonGroup variant="outline" spacing="6">
-          <IconButton aria-label="addItem" onClick={add} icon={<AddIcon />} isDisabled={count == stock} />
-          <Text className="count-button" as="b">
-            {count}
-          </Text>
-          <IconButton aria-label="oddItem" onClick={odd} icon={<MinusIcon />} isDisabled={count == 1} />
-        </ButtonGroup>
-      </Box>
-      <Box paddingTop="10px">
-        <Button colorScheme="blue" variant="outline">
-          Añadir al carrito
-        </Button>
-      </Box>
-    </div>
+    <NumberInput size="sm" maxW={20} defaultValue={1} min={1} max={stock} bg="white">
+      <NumberInputField fontWeight="bold" />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
   );
 };
 
