@@ -1,7 +1,7 @@
 /* ProductCard.css */
 
 .card-link {
-  text-decoration: none !important;
+  text-decoration: none !important; /* Si no se le pone important no lo toma */
 }
 
 .card-link:hover {

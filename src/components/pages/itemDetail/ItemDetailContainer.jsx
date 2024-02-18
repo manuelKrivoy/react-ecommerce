@@ -5,7 +5,7 @@ import "./ItemDetail.css";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
-  let id = 1;
+  let id = 15;
 
   useEffect(() => {
     const filteredItem = products.find((product) => product.id === id);
