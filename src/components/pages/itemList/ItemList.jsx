@@ -5,8 +5,8 @@ const ItemList = ({ items }) => {
   console.log(items);
   return (
     <div className="product-container">
-      {items.map(({ id, img, title, description, price }) => {
-        return <ProductCard key={id} img={img} title={title} price={price} />;
+      {items.map(({ id, img, title, price }) => {
+        return <ProductCard key={id} id={id} img={img} title={title} price={price} />;
       })}
     </div>
   );

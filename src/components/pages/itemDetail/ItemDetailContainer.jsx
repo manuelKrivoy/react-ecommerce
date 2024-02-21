@@ -1,18 +1,25 @@
 import ItemDetail from "./ItemDetail";
-import { products } from "../../../productMock";
+import { getProduct } from "../../../productMock";
 import { useState, useEffect } from "react";
 import "./ItemDetail.css";
+import { useParams } from "react-router-dom";
+import LoadingSpinner from "../../common/LoadingSpinner";
 
 const ItemDetailContainer = () => {
+  const { id } = useParams(); //Hook exclusivo de react router dom, detecta el parametro que ingresamos al navegador
   const [item, setItem] = useState(null);
-  let id = 15;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const filteredItem = products.find((product) => product.id === id);
-    setItem(filteredItem);
-  }, []);
+    // Convertir el ID a un número entero
+    const itemId = parseInt(id);
+    getProduct(itemId)
+      .then((resp) => setItem(resp))
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
+  }, [id]);
 
-  return <ItemDetail item={item} />;
+  return <>{isLoading ? <LoadingSpinner /> : <ItemDetail item={item} />}</>;
 };
 
 export default ItemDetailContainer;

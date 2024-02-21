@@ -85,7 +85,7 @@ export let products = [
     title: "Bufanda Manchester United",
     price: 9000,
     description: "Bufanda oficial del Manchester United para mantenerte abrigado en los encuentros.",
-    img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708035077/ecommerce-react/bufandaMU.jpg",
+    img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708554723/ecommerce-react/bufandaMU.jpg",
     stock: 25,
     category: "Accesorios",
   },
@@ -146,7 +146,7 @@ export let products = [
   {
     id: 17,
     title: "Camiseta Local Italia - 2024",
-    price: 5000,
+    price: 50000,
     description: "Camiseta oficial de la selección italiana de fútbol, temporada 2024.",
     img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708095241/ecommerce-react/italia.jpg",
     stock: 50,
@@ -164,7 +164,7 @@ export let products = [
   {
     id: 19,
     title: "Camiseta Local Francia - 2024",
-    price: 8500,
+    price: 48000,
     description: "Camiseta oficial local de la selección francesa de fútbol, temporada 2024.",
     img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708095245/ecommerce-react/francia.png",
     stock: 25,
@@ -180,3 +180,32 @@ export let products = [
     category: "Clubes",
   },
 ];
+
+export const getProducts = () => {
+  return new Promise((resolve, reject) => {
+    if (products.length > 0) {
+      setTimeout(() => {
+        resolve(products);
+      }, 1000); //Simulamos demora para parecer q trabajamos con una bdd
+    } else {
+      reject("No hay productos");
+    }
+  });
+};
+
+export const getProduct = (id) => {
+  return new Promise((resolve, reject) => {
+    if (products.length > 0) {
+      const item = products.find((product) => product.id === id);
+      setTimeout(() => {
+        if (item) {
+          resolve(item);
+        } else {
+          reject("El id :", id, " no existe");
+        }
+      }, 1000);
+    } else {
+      reject("No hay productos");
+    }
+  });
+};
