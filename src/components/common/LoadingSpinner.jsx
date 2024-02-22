@@ -1,7 +1,7 @@
-import { Spinner } from "@chakra-ui/react";
+import { Progress } from "@chakra-ui/react";
 
-const LoadingSpinner = () => {
-  return <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" color="blue.500" />;
+const Loading = () => {
+  return <Progress size="xs" isIndeterminate colorScheme="orange" />;
 };
 
-export default LoadingSpinner;
+export default Loading;

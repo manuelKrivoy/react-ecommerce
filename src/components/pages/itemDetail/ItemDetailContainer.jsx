@@ -3,7 +3,7 @@ import { getProduct } from "../../../productMock";
 import { useState, useEffect } from "react";
 import "./ItemDetail.css";
 import { useParams } from "react-router-dom";
-import LoadingSpinner from "../../common/LoadingSpinner";
+import Loading from "../../common/LoadingSpinner";
 
 const ItemDetailContainer = () => {
   const { id } = useParams(); //Hook exclusivo de react router dom, detecta el parametro que ingresamos al navegador
@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
       .finally(() => setIsLoading(false));
   }, [id]);
 
-  return <>{isLoading ? <LoadingSpinner /> : <ItemDetail item={item} />}</>;
+  return <>{isLoading ? <Loading /> : <ItemDetail item={item} />}</>;
 };
 
 export default ItemDetailContainer;

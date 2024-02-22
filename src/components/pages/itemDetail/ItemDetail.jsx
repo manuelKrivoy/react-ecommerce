@@ -19,6 +19,7 @@ const ItemDetail = ({ item }) => {
         mr="40px"
         borderRadius="10%"
         _hover={{ opacity: "70%", transform: "scale(1.009)", cursor: "default" }}
+        bg="white"
       />
       <Box>
         <Heading as="h2" fontSize="55px" mb="20px">
