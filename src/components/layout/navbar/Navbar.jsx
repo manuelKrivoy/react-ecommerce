@@ -18,7 +18,7 @@ export const Navbar = () => {
           </Text>
         </Box>
         <Box ml="15px">
-          <Image src="/logo.png" alt="Logo" boxSize="50px" />
+          <Image src="/logoColor.png" alt="Logo" boxSize="55px" />
         </Box>
       </Flex>
       <Box>

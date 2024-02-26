@@ -1,11 +1,11 @@
 import { Box, Image, Text, Heading, Flex } from "@chakra-ui/react";
 import CounterContainer from "../../common/counter/CounterContainer";
-import AddToCartContainer from "../../common/addToCart/AddToCartContainer";
+import Loading from "../../common/LoadingSpinner";
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAdd }) => {
   // Verificar si item es null antes de intentar acceder a sus propiedades
   if (!item) {
-    return <div>Cargando...</div>; // O cualquier otro indicador de carga que desees mostrar
+    return <Loading />; // O cualquier otro indicador de carga que desees mostrar
   }
 
   return (
@@ -31,10 +31,7 @@ const ItemDetail = ({ item }) => {
         <Text fontSize="30px" fontWeight="bold" mb="20px" color="#3FBD41">
           ${item.price}
         </Text>
-        <Flex alignItems="center">
-          <AddToCartContainer />
-          <CounterContainer stock={item.stock} />
-        </Flex>
+        <CounterContainer stock={item.stock} onAdd={onAdd} />
       </Box>
     </Flex>
   );
