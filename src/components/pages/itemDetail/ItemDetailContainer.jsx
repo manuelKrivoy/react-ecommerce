@@ -3,9 +3,9 @@ import { getProduct } from "../../../productMock";
 import { useState, useEffect } from "react";
 import "./ItemDetail.css";
 import { useNavigate, useParams } from "react-router-dom";
-import Loading from "../../common/LoadingSpinner";
+import { LoadingSpinner } from "../../common";
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
   const { id } = useParams(); //Hook exclusivo de react router dom, detecta el parametro que ingresamos al navegador
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +25,5 @@ const ItemDetailContainer = () => {
     // navigate("/cart"); //Quiero viajar al carrito despues de añadir producto
   };
 
-  return <>{isLoading ? <Loading /> : <ItemDetail item={item} onAdd={onAdd} />}</>;
+  return <>{isLoading ? <LoadingSpinner /> : <ItemDetail item={item} onAdd={onAdd} />}</>;
 };
-
-export default ItemDetailContainer;

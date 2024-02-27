@@ -1,6 +1,6 @@
-import { Flex, Box, Text, Link, Button, Image, Img } from "@chakra-ui/react";
-import NavButton from "../../common/NavButton";
-import { CartWidget } from "../../common/cartWidget/CartWidget";
+import { Flex, Box, Text, Link, Image } from "@chakra-ui/react";
+
+import { CartWidget, NavButton } from "../../common";
 
 export const Navbar = () => {
   return (

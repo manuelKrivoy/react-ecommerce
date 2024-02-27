@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../../../productMock"; // Importa solo los productos, no la función getProducts
 import ItemList from "./ItemList";
 import { useState, useEffect } from "react";
-import Loading from "../../common/LoadingSpinner";
+import { LoadingSpinner } from "../../common";
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
   const { category } = useParams();
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +25,7 @@ const ItemListContainer = () => {
       setIsLoading(false);
     });
   }, [category]);
-  return <>{isLoading ? <Loading /> : <ItemList items={items} />}</>;
+  return <>{isLoading ? <LoadingSpinner /> : <ItemList items={items} />}</>;
 };
 
 export default ItemListContainer;

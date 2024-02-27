@@ -1,8 +1,5 @@
-import React from "react";
 import Cart from "./Cart";
 
-const CartContainer = () => {
+export const CartContainer = () => {
   return <Cart />;
 };
-
-export default CartContainer;
