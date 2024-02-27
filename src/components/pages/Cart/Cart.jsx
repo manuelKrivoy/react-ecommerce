@@ -1,7 +1,12 @@
-import React from "react";
+import { NavButton } from "../../common";
 
 const Cart = () => {
-  return <div>Cart</div>;
+  return (
+    <div>
+      <h1>Este es el carrito</h1>
+      <NavButton text="Check Out" href="./checkout" />
+    </div>
+  );
 };
 
 export default Cart;

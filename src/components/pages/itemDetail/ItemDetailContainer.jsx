@@ -22,7 +22,7 @@ export const ItemDetailContainer = () => {
   const onAdd = (cantidad) => {
     console.log("se ha pasado: ", cantidad);
 
-    // navigate("/cart"); //Quiero viajar al carrito despues de añadir producto
+    navigate("/cart"); //Quiero viajar al carrito despues de añadir producto
   };
 
   return <>{isLoading ? <LoadingSpinner /> : <ItemDetail item={item} onAdd={onAdd} />}</>;

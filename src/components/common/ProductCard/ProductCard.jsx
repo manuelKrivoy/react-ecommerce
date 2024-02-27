@@ -1,9 +1,10 @@
-import { Card, CardBody, CardFooter, Image, Heading, Text, Divider, Link, Stack, Box } from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, Image, Heading, Text, Divider, Stack, Box } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 export const ProductCard = ({ id, img, title, price }) => {
   return (
-    <Link href={`/item/${id}`} className="card-link">
+    <Link to={`/item/${id}`} className="card-link">
       <Card maxW="sm">
         <CardBody className="card-body">
           <Image className="card-image" src={img} />
