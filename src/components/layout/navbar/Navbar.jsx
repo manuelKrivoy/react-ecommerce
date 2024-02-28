@@ -1,5 +1,5 @@
-import { Flex, Box, Text, Link, Image } from "@chakra-ui/react";
-
+import { Flex, Box, Text, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { CartWidget, NavButton } from "../../common";
 
 export const Navbar = () => {
@@ -22,7 +22,7 @@ export const Navbar = () => {
         </Box>
       </Flex>
       <Box>
-        <Link href="/cart">
+        <Link to="/cart">
           <CartWidget />
         </Link>
       </Box>
