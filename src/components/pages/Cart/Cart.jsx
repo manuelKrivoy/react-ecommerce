@@ -1,13 +1,13 @@
-import { Center, Flex, Button, Box } from "@chakra-ui/react";
+import { Flex, Button, Stack, Text } from "@chakra-ui/react";
 import { NavButton } from "../../common";
 import { CartCardContainer } from "../../common";
 import EmptyCart from "./EmptyCart";
 
-const Cart = ({ cart, removeById, clearCart }) => {
+const Cart = ({ cart, removeById, clearCart, cartValue }) => {
   if (cart.length > 0) {
     return (
-      <Flex>
-        <div>
+      <Flex justify="center">
+        <Stack p="10px" width="100%">
           {cart.map(({ id, img, title, price, quantity }) => (
             <CartCardContainer
               key={id}
@@ -19,15 +19,18 @@ const Cart = ({ cart, removeById, clearCart }) => {
               removeById={removeById}
             />
           ))}
-          <Button m="10px" onClick={clearCart} colorScheme="teal">
-            Limpiar Carrito
-          </Button>
-        </div>
-        <Center pl="5px">
-          <Box mt="5px">
-            <NavButton text="Finalizar compra" href="/checkout" />
-          </Box>
-        </Center>
+          <Flex justify="center">
+            <Text fontSize="3xl" as="b" color="#D8731F">
+              ${cartValue}
+            </Text>
+          </Flex>
+          <Flex justify="center">
+            <NavButton text="Finalizar compra" href="/checkout"></NavButton>
+            <Button onClick={clearCart} colorScheme="teal" mr="10px">
+              Limpiar Carrito
+            </Button>
+          </Flex>
+        </Stack>
       </Flex>
     );
   } else {

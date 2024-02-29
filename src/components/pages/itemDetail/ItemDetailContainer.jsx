@@ -26,8 +26,6 @@ export const ItemDetailContainer = () => {
       ...item,
       quantity: cantidad,
     };
-
-    console.log("se ha comprado:  ", infoProducto);
     addToCart(infoProducto);
     // navigate("/cart"); //Quiero viajar al carrito despues de añadir producto
   };

@@ -9,7 +9,7 @@ const EmptyCart = () => {
       <Image src="/emptyCart.gif" alt="Empty Cart" mx="auto" mb="4" />
       <Link to="/">
         <Button colorScheme="teal" variant="outline">
-          Descubre nuestros productos!
+          Descubre nuestros productos
         </Button>
       </Link>
     </Box>
