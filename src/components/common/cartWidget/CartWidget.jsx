@@ -4,12 +4,14 @@ import { BsCartFill } from "react-icons/bs";
 import { CartContext } from "../../../context/CartContext";
 
 export const CartWidget = () => {
-  const { cart } = useContext(CartContext);
+  const { getTotalItems } = useContext(CartContext);
+
+  let totalItems = getTotalItems();
   return (
     <>
       <Button variant="solid" mr="4" background="#3FBD41">
         <BsCartFill />
-        <p>{cart.length}</p>
+        <p>{totalItems}</p>
       </Button>
     </>
   );

@@ -1,10 +1,10 @@
 import { Box, Image, Text, Heading, Flex } from "@chakra-ui/react";
 import { CountContainer, LoadingSpinner } from "../../common";
 
-const ItemDetail = ({ item, onAdd }) => {
+const ItemDetail = ({ item, onAdd, totalQuantity }) => {
   // Verificar si item es null antes de intentar acceder a sus propiedades
   if (!item) {
-    return <LoadingSpinner />; // O cualquier otro indicador de carga que desees mostrar
+    return <LoadingSpinner />;
   }
 
   return (
@@ -30,7 +30,12 @@ const ItemDetail = ({ item, onAdd }) => {
         <Text fontSize="30px" fontWeight="bold" mb="20px" color="#3FBD41">
           ${item.price}
         </Text>
-        <CountContainer stock={item.stock} onAdd={onAdd} />
+        {totalQuantity && (
+          <Text fontWeight="bold" fontSize="15px">
+            Ya tienes de esto en tu carrito! ({totalQuantity} unidades)
+          </Text>
+        )}
+        <CountContainer stock={item.stock} onAdd={onAdd} totalQuantity={totalQuantity} />
       </Box>
     </Flex>
   );

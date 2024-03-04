@@ -9,16 +9,16 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-const Count = ({ stock, onAdd }) => {
+const Count = ({ stock, onAdd, totalQuantity = 1 }) => {
   // Estado local para almacenar el valor actual del input
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(totalQuantity);
 
   return (
     <Flex alignItems="center">
       <NumberInput
         size="sm"
         maxW={20}
-        defaultValue={1}
+        defaultValue={totalQuantity}
         min={1}
         max={stock}
         bg="white"
@@ -31,6 +31,7 @@ const Count = ({ stock, onAdd }) => {
           <NumberDecrementStepper />
         </NumberInputStepper>
       </NumberInput>
+
       <Button
         ml="10px"
         variant="solid"
@@ -38,6 +39,7 @@ const Count = ({ stock, onAdd }) => {
         onClick={() => {
           // Llamamos a la función onAdd pasando el valor actual
           onAdd(value);
+          console.log("value es:", value);
         }}
       >
         Añadir al carrito

@@ -5,6 +5,7 @@ export const CheckOutContainer = () => {
     nombre: "",
     apellido: "",
     email: "",
+    direccion: "",
   });
 
   const handleSubmit = (e) => {

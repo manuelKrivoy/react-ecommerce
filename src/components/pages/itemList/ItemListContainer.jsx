@@ -25,7 +25,16 @@ export const ItemListContainer = () => {
       setIsLoading(false);
     });
   }, [category]);
-  return <>{isLoading ? <LoadingSpinner /> : <ItemList items={items} />}</>;
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  return (
+    <>
+      <ItemList items={items} />
+    </>
+  );
 };
 
 export default ItemListContainer;
