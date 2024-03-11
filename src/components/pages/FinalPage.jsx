@@ -1,8 +1,10 @@
 import { Box, Center, useClipboard, Image, Text, IconButton, Tooltip, Flex } from "@chakra-ui/react";
 import { NavButton } from "../common";
 import { CopyIcon } from "@chakra-ui/icons";
+import { useParams } from "react-router-dom";
 
-export const FinalPage = ({ orderId }) => {
+export const FinalPage = () => {
+  const { orderId } = useParams();
   const { hasCopied, onCopy } = useClipboard(orderId);
 
   return (
@@ -10,7 +12,7 @@ export const FinalPage = ({ orderId }) => {
       <Text p={8} fontSize="2xl" as="b" fontFamily="'Angkor', sans-serif">
         COMPRA FINALIZADA!
       </Text>
-      <Image src="shoppingBag.png" />
+      <Image src="/shoppingBag.png" />
       <Text mt={8} fontSize="xl" color="black" textAlign="center">
         ID de seguimiento:
       </Text>

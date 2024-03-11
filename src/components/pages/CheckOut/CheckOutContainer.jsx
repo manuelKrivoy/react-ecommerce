@@ -5,11 +5,13 @@ import * as Yup from "yup";
 import { CartContext } from "../../../context/CartContext";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 export const CheckOutContainer = () => {
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const totalPrice = getTotalPrice();
+  const navigate = useNavigate(); // Hook para navegar entre rutas
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -34,7 +36,8 @@ export const CheckOutContainer = () => {
           const productRef = doc(db, "products", product.id);
           await updateDoc(productRef, { stock: product.stock - product.quantity });
         });
-
+        // Navegar a la ruta con el orderId
+        navigate(`/checkout/${orderRef.id}`);
         clearCart();
       } catch (error) {
         console.error("Error al enviar la orden:", error);

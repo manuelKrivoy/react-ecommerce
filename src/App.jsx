@@ -1,11 +1,17 @@
-import { ChakraProvider } from "@chakra-ui/react"; //Chakra UI
-import theme from "./theme.jsx"; // Reemplaza el index.css
-
-import { CartContainer, CheckOutContainer, ItemDetailContainer, ItemListContainer, NotFound } from "./components/pages";
-import CartContextProvider from "./context/CartContext.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; //Router
-
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme.jsx";
+import {
+  CartContainer,
+  CheckOutContainer,
+  FinalPage,
+  ItemDetailContainer,
+  ItemListContainer,
+  NotFound,
+} from "./components/pages";
+import CartContextProvider, { CartContext } from "./context/CartContext.jsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout.jsx";
+import { useContext } from "react";
 
 function App() {
   return (
@@ -13,20 +19,28 @@ function App() {
       <BrowserRouter>
         <CartContextProvider>
           <Routes>
-            {/* Es ruta padre */}
             <Route element={<Layout />}>
               <Route path="/" element={<ItemListContainer />} />
               <Route path="/cart" element={<CartContainer />} />
               <Route path="/item/:id" element={<ItemDetailContainer />} />
               <Route path="/category/:category" element={<ItemListContainer />} />
-              <Route path="/checkout" element={<CheckOutContainer />} />
+              {/* Verificar si el carrito tiene elementos, si no, redirigir a la página de inicio */}
+              <Route path="/checkout" element={<ProtectedCheckout />} />
+              <Route path="/checkout/:orderId" element={<FinalPage />} />
             </Route>
-            <Route path="*" element={<NotFound />} /> {/* Para todo lo que no esta definido */}
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </CartContextProvider>
       </BrowserRouter>
     </ChakraProvider>
   );
+}
+
+function ProtectedCheckout() {
+  //Solo se puede ir a /checkout si el carrito tiene items
+  const { cart } = useContext(CartContext);
+  return cart.length > 0 ? <CheckOutContainer /> : <Navigate to="/" />;
 }
 
 export default App;
