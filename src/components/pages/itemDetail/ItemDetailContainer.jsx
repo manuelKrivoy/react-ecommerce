@@ -1,11 +1,12 @@
 import ItemDetail from "./ItemDetail";
-import { getProduct } from "../../../productMock";
 import { useState, useEffect, useContext } from "react";
 import "./ItemDetail.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { LoadingSpinner } from "../../common";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import { db } from "../../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams(); //Hook exclusivo de react router dom, detecta el parametro que ingresamos al navegador
@@ -16,12 +17,15 @@ export const ItemDetailContainer = () => {
   // const navigate = useNavigate();
   const { addToCart } = useContext(CartContext); //traigo contexto para agregar productos al carrito
   useEffect(() => {
-    // Convertir el ID a un número entero
-    const itemId = parseInt(id);
-    getProduct(itemId)
-      .then((resp) => setItem(resp))
-      .catch((error) => console.error(error))
-      .finally(() => setIsLoading(false));
+    let productCollection = collection(db, "products"); //Traigo colección
+    let refDoc = doc(productCollection, id); //Me traigo el documento que tenga el id del useParams
+    getDoc(refDoc)
+      .then((res) => {
+        setItem({ ...res.data(), id: res.id }); //seteo item con el documento
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [id]);
 
   const onAdd = (cantidad) => {

@@ -1,27 +1,86 @@
-import { Box, FormControl, FormLabel, Input, Stack, Button, Center } from "@chakra-ui/react";
+import {
+  Box,
+  FormControl,
+  Input,
+  Stack,
+  Button,
+  Center,
+  FormErrorMessage,
+  InputLeftElement,
+  InputGroup,
+} from "@chakra-ui/react";
+import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
+import { HiMiniHome } from "react-icons/hi2";
+import { FinalPage } from "../index.js";
 
-export const CheckOut = ({ handleInputChange, handleSubmit }) => {
+export const CheckOut = ({ orderId, handleChange, handleSubmit, errors }) => {
   return (
-    <Box height="80vh" pt={8} pl={8} pr={8}>
-      <Box bg="gray.100" borderRadius="md" mb="10px">
-        <FormControl as="form" onSubmit={handleSubmit}>
-          <Stack spacing={3}>
-            <FormLabel htmlFor="nombre">Nombre</FormLabel>
-            <Input id="nombre" placeholder="Nombre" size="md" name="nombre" onChange={handleInputChange} />
-            <FormLabel htmlFor="apellido">Apellido</FormLabel>
-            <Input id="apellido" placeholder="Apellido" size="md" name="apellido" onChange={handleInputChange} />
-            <FormLabel htmlFor="email">Email</FormLabel>
-            <Input id="email" placeholder="Email" size="md" type="email" name="email" onChange={handleInputChange} />
-            <FormLabel htmlFor="direccion">Dirección</FormLabel>
-            <Input id="direccion" placeholder="Dirección" size="md" name="direccion" onChange={handleInputChange} />
-          </Stack>
-          <Center>
-            <Button mt="10px" type="submit" variant="solid" background="#3FBD41" marginLeft="auto" marginRight="auto">
-              Confirmar
-            </Button>
-          </Center>
-        </FormControl>
-      </Box>
-    </Box>
+    <div>
+      {orderId ? (
+        <FinalPage orderId={orderId} />
+      ) : (
+        <Box height="80vh" p={8}>
+          <Box bg="gray.100" borderRadius="md" m="10px" p={8}>
+            <FormControl as="form" onSubmit={handleSubmit}>
+              <Stack spacing={3}>
+                <FormControl isInvalid={errors.nombre}>
+                  <Input name="nombre" onChange={handleChange} variant="flushed" placeholder="Nombre" size="lg" />
+                  <FormErrorMessage>{errors.nombre}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={errors.apellido}>
+                  <Input name="apellido" onChange={handleChange} variant="flushed" placeholder="Apellido" size="lg" />
+                  <FormErrorMessage>{errors.apellido}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={errors.tel}>
+                  <InputGroup>
+                    <InputLeftElement>
+                      <PhoneIcon />
+                    </InputLeftElement>
+                    <Input name="tel" onChange={handleChange} variant="flushed" placeholder="Telefono" size="lg" />
+                  </InputGroup>
+                  <FormErrorMessage>{errors.tel}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={errors.email}>
+                  <InputGroup>
+                    <InputLeftElement>
+                      <EmailIcon />
+                    </InputLeftElement>
+                    <Input name="email" onChange={handleChange} variant="flushed" placeholder="Email" size="lg" />
+                  </InputGroup>
+                  <FormErrorMessage>{errors.email}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={errors.direccion}>
+                  <InputGroup>
+                    <InputLeftElement>
+                      <HiMiniHome />
+                    </InputLeftElement>
+                    <Input
+                      name="direccion"
+                      onChange={handleChange}
+                      variant="flushed"
+                      placeholder="Dirección"
+                      size="lg"
+                    />
+                  </InputGroup>
+                  <FormErrorMessage>{errors.direccion}</FormErrorMessage>
+                </FormControl>
+              </Stack>
+              <Center>
+                <Button
+                  mt="10px"
+                  type="submit"
+                  variant="solid"
+                  background="#3FBD41"
+                  marginLeft="auto"
+                  marginRight="auto"
+                >
+                  Comprar
+                </Button>
+              </Center>
+            </FormControl>
+          </Box>
+        </Box>
+      )}
+    </div>
   );
 };

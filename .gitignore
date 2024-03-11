@@ -20,5 +20,7 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
-*.sw?
+*.slns
+
+# Archivos de configuración sensibles
+firebaseConfig.js

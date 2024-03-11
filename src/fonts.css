@@ -5,3 +5,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Angkor";
+  src: url("/fonts/Angkor-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

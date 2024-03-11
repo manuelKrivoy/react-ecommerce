@@ -1,3 +1,4 @@
+export { FinalPage } from "./FinalPage";
 export { CartContainer } from "./Cart/CartContainer";
 export { NotFound } from "./NotFound";
 export { ItemDetailContainer } from "./itemDetail/ItemDetailContainer";

@@ -35,15 +35,7 @@ export let products = [
     stock: 10,
     category: "Clubes",
   },
-  {
-    id: 5,
-    title: "Camiseta Local de Manchester United - 2024",
-    price: 48000,
-    description: "Camiseta oficial local del Manchester United, marca Adidas",
-    img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708034719/ecommerce-react/MU2024.avif",
-    stock: 18,
-    category: "Clubes",
-  },
+
   {
     id: 6,
     title: "Pulsera de Silicona Argentina",
@@ -152,15 +144,7 @@ export let products = [
     stock: 50,
     category: "Selecciones",
   },
-  {
-    id: 18,
-    title: "Camiseta visitante de Real Madrid - 2024",
-    price: 60000,
-    description: "Camiseta oficial local del Real Madrid, temporada 2024.",
-    img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708095240/ecommerce-react/real%20madrid%20visitante.jpg",
-    stock: 10,
-    category: "Clubes",
-  },
+
   {
     id: 19,
     title: "Camiseta Local Francia - 2024",

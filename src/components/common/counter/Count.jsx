@@ -39,7 +39,6 @@ const Count = ({ stock, onAdd, totalQuantity = 1 }) => {
         onClick={() => {
           // Llamamos a la función onAdd pasando el valor actual
           onAdd(value);
-          console.log("value es:", value);
         }}
       >
         Añadir al carrito

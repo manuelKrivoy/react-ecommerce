@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
   const addToCart = (product) => {
     if (isInCart(product.id)) {
@@ -20,13 +20,17 @@ const CartContextProvider = ({ children }) => {
         }
       });
       setCart(newArray);
+      localStorage.setItem("cart", JSON.stringify(newArray));
     } else {
-      setCart([...cart, product]);
+      let newArray = [...cart, product];
+      setCart(newArray);
+      localStorage.setItem("cart", JSON.stringify(newArray));
     }
   };
 
   const clearCart = () => {
     setCart([]);
+    localStorage.removeItem("cart"); //Borro toda la propiedad carrito
   };
 
   const isInCart = (id) => {
@@ -39,6 +43,7 @@ const CartContextProvider = ({ children }) => {
     const newArray = cart.filter((elemento) => elemento.id !== id);
     // Actualiza el estado cart con el nuevo arreglo filtrado
     setCart(newArray);
+    localStorage.setItem("cart", JSON.stringify(newArray));
   };
 
   const getTotalItems = () => {
