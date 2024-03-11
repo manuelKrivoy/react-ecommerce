@@ -6,12 +6,33 @@ import { CartContext } from "../../../context/CartContext";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const CheckOutContainer = () => {
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const totalPrice = getTotalPrice();
   const navigate = useNavigate(); // Hook para navegar entre rutas
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // Muestra una alerta de confirmación al usuario
+    const result = await Swal.fire({
+      title: "Confirmar Compra",
+      text: "¿Estás seguro de que deseas realizar la compra?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Sí, Comprar",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+
+    // Si el usuario confirma la compra, envía el formulario
+    if (result.isConfirmed) {
+      handleSubmit(e);
+    }
+  };
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -57,5 +78,5 @@ export const CheckOutContainer = () => {
     validateOnChange: false,
   });
 
-  return <CheckOut orderId={orderId} handleChange={handleChange} handleSubmit={handleSubmit} errors={errors} />;
+  return <CheckOut orderId={orderId} handleChange={handleChange} handleSubmit={handleFormSubmit} errors={errors} />;
 };
