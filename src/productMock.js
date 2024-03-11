@@ -35,6 +35,15 @@ export let products = [
     stock: 10,
     category: "Clubes",
   },
+  {
+    id: 5,
+    title: "Camiseta visitante Real Madrid - 2024",
+    price: 58000,
+    description: "Camiseta visitante del Real Madrid, marca Adidas.",
+    img: "https://res.cloudinary.com/drzbbyfbt/image/upload/v1708095240/ecommerce-react/real%20madrid%20visitante.jpg",
+    stock: 70,
+    category: "Clubes",
+  },
 
   {
     id: 6,
