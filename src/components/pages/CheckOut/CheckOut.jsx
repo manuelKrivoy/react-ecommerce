@@ -8,13 +8,13 @@ import {
   FormErrorMessage,
   InputLeftElement,
   InputGroup,
-  Flex,
+  Text,
 } from "@chakra-ui/react";
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import { HiMiniHome } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 
-export const CheckOut = ({ handleChange, handleSubmit, errors }) => {
+export const CheckOut = ({ handleChange, handleSubmit, errors, totalPrice }) => {
   return (
     <Box height="80vh" p={8}>
       <Link to="/cart">
@@ -62,9 +62,14 @@ export const CheckOut = ({ handleChange, handleSubmit, errors }) => {
             </FormControl>
           </Stack>
           <Center>
-            <Button mt="10px" type="submit" variant="solid" background="#3FBD41" marginLeft="auto" marginRight="auto">
-              Comprar
-            </Button>
+            <Stack>
+              <Text mt="10px" fontSize="3xl" as="b" color="#D8731F">
+                ${totalPrice}
+              </Text>
+              <Button mt="5px" type="submit" variant="solid" background="#3FBD41" marginLeft="auto" marginRight="auto">
+                Comprar
+              </Button>
+            </Stack>
           </Center>
         </FormControl>
       </Box>

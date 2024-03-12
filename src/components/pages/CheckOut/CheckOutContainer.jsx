@@ -78,5 +78,13 @@ export const CheckOutContainer = () => {
     validateOnChange: false,
   });
 
-  return <CheckOut orderId={orderId} handleChange={handleChange} handleSubmit={handleFormSubmit} errors={errors} />;
+  return (
+    <CheckOut
+      orderId={orderId}
+      handleChange={handleChange}
+      handleSubmit={handleFormSubmit}
+      errors={errors}
+      totalPrice={totalPrice}
+    />
+  );
 };
