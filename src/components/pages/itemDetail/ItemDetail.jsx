@@ -30,8 +30,9 @@ const ItemDetail = ({ item, onAdd, totalQuantity }) => {
         <Text fontSize="30px" fontWeight="bold" mb="20px" color="#3FBD41">
           ${item.price}
         </Text>
+
         {totalQuantity && (
-          <Text fontWeight="bold" fontSize="15px">
+          <Text fontWeight="bold" fontSize="15px" color="#FF5733">
             Ya tienes de esto en tu carrito! ({totalQuantity} unidades)
           </Text>
         )}
