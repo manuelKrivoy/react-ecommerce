@@ -49,10 +49,6 @@ npm run dev
 
 🚀 Listo! 🚀
 
-### url:
-
-[Mansión de fútbol](https://react-ecommerce-sooty.vercel.app/)
-
 ## Tecnologías Utilizadas
 
 - [ReactJS](https://react.dev/) <img  src="public/react.png" alt="React" width="20" height="20">
@@ -60,3 +56,7 @@ npm run dev
 - [Chakra UI](https://chakra-ui.com/) <img src="public/chakra.png" alt="Chakra UI" width="20" height="20">
 - [Firebase](https://firebase.google.com/?hl=es) <img src="public/firebase.svg" alt="Firebase" width="20" height="20">
 - [Vercel](https://vercel.com/) <img src="public/vercel.png" alt="Vercel" width="20" height="20">
+
+### Vercel URL:
+
+[Mansión de fútbol](https://react-ecommerce-sooty.vercel.app/)
