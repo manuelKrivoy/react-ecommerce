@@ -1,4 +1,3 @@
-import { AddDocs } from "../../../AddDocs";
 import { ProductCard } from "../../common/ProductCard/ProductCard";
 import "./ItemList.css";
 
