@@ -44,7 +44,7 @@ export const ItemDetailContainer = () => {
   if (isLoading) {
     return <LoadingSpinner />;
   }
-  console.log(totalQuantity);
+
   return (
     <>
       <ItemDetail item={item} onAdd={onAdd} totalQuantity={totalQuantity} />
