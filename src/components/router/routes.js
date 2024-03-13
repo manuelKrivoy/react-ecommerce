@@ -1,33 +1,34 @@
+import { CartContainer, FinalPage, ItemDetailContainer, ItemListContainer, ProtectedCheckout } from "../pages";
+
 export const routes = [
   {
     id: "home",
     path: "/",
-    Element: "ItemListContainer",
+    Element: ItemListContainer,
   },
   {
     id: "carrito",
     path: "/cart",
-    Element: "CartContainer",
+    Element: CartContainer,
   },
   {
     id: "detail",
     path: "/item/:id",
-    Element: "ItemDetailContainer",
+    Element: ItemDetailContainer,
   },
   {
     id: "category",
     path: "/category/:category",
-    Element: "ItemListContainer",
+    Element: ItemListContainer,
   },
   {
     id: "checkout",
     path: "/checkout",
-    Element: "ProtectedCheckout",
+    Element: ProtectedCheckout,
   },
-
   {
     id: "finalPage",
     path: "/checkout/:orderId",
-    Element: "FinalPage",
+    Element: FinalPage,
   },
 ];

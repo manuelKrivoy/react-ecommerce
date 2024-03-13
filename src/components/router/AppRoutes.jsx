@@ -1,16 +1,9 @@
-import { Navigate, Route, Routes } from "react-router-dom";
 import { routes } from "./routes";
 import Layout from "../layout/Layout";
-import { CartContext } from "../../context/CartContext";
-import { CheckOutContainer, NotFound } from "../pages";
-import { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
+import { NotFound } from "../pages";
 
 export const AppRoutes = () => {
-  function ProtectedCheckout() {
-    //Solo se puede ir a /checkout si el carrito tiene items
-    const { cart } = useContext(CartContext);
-    return cart.length > 0 ? <CheckOutContainer /> : <Navigate to="/" />;
-  }
   return (
     <Routes>
       <Route element={<Layout />}>

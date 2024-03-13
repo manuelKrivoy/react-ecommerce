@@ -1,3 +1,4 @@
+export { ProtectedCheckout } from "./CheckOut/ProtectedCheckout";
 export { FinalPage } from "./FinalPage";
 export { CartContainer } from "./Cart/CartContainer";
 export { NotFound } from "./NotFound";
